@@ -1,0 +1,52 @@
+﻿@model List<TbImg>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Players List</h4>
+            <p class="card-description">
+                List Of Players In Zamalek Club For 2022 Year
+            </p>
+            <a href="/User/Register" class="btn btn-info">Go To Voting</a>
+            <table id="order-listing" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th> imgs </th>
+                        <th> Club Name </th>
+                        <th> Progress </th>
+                        <th> player Number </th>
+                        <th> End of the decade </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var i in Model)
+                    {
+                        <tr>
+
+                            <td class="py-1">
+                                <img src="~/HomeImgs/@i.Imgname" alt="image">
+                            </td>
+                            <td> Zamalek </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </td>
+                            <td> @i.Imgid </td>
+                            <td> May 15, 2015 </td>
+                        </tr>
+                    }
+                             
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section DataTable{
+    <!-- Plugin js for this page -->
+    <script src="~/assets/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="~/assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- Custom js for this page -->
+    <script src="~/assets/js/data-table.js"></script>
+    <!-- End custom js for this page -->
+}

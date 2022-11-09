@@ -1,0 +1,80 @@
+﻿@model UserModel
+<div class="content-wrapper d-flex align-items-center auth">
+    <div class="row flex-grow">
+        <div class="col-lg-6 mx-auto">
+            <div class="auth-form-light text-left p-5">
+                <div class="brand-logo">
+                    <img src="~/assets/images/logo.svg">
+                </div>
+                <h4>New here?</h4>
+                <h6 class="font-weight-light">@ResGeneral.lblSignUpMessage</h6>
+                <form asp-controller="User" asp-action="SignUp" method="post" enctype="multipart/form-data" class="pt-3">
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">@ResAdmin.lblUserName</label>
+                        <input asp-for="UserName" type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="@ResAdmin.lblUserName">
+                        <span class="text-danger" asp-validation-for="UserName"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">@ResAdmin.lblUserEmail</label>
+                        <input asp-for="UserEmail" type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="@ResAdmin.lblUserEmail">
+                        <span class="text-danger" asp-validation-for="UserEmail"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">@ResAdmin.lblAge</label>
+                        <input onkeydown="limit(this);" onkeyup="limit(this); asp-for=" UserAge" min="0" maxlength="3" type="number" onKeyPress="if(this.value.length==2) return false;maxlength="2" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="@ResAdmin.lblAge">
+                        <span class="text-danger" asp-validation-for="UserAge"></span>
+                    </div>
+                    <div class="form-group">
+                        <label  for="exampleInputUsername1">@ResAdmin.lblEx</label>
+                        <select  asp-for="UserExperience"  class="form-control form-control-lg" id="exampleFormControlSelect2">
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>more than 10</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="UserExperience"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">@ResAdmin.lblJob</label>
+                        <input asp-for="UserJob" type="text" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="@ResAdmin.lblJob">
+                        <span class="text-danger" asp-validation-for="UserJob"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">@ResAdmin.lblPassword</label>
+                        <input asp-for="UserPassword" type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                        <span class="text-danger" asp-validation-for="UserPassword"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">Sign Up</button>
+                  
+                    <script>
+                        function limit(element) {
+                            var max_chars = 1;
+
+                            if (element.value.length > max_chars) {
+                                element.value = element.value.substr(0, max_chars);
+                            }
+                        }
+                    </script>
+                  
+                  
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+}
+    
